@@ -1,6 +1,7 @@
 Add the Use Cases to this file
 
-<img width="1290" height="728" alt="image" src="https://github.com/user-attachments/assets/eedf8b54-6620-41f9-99ff-40b3e7fed9b1" />
+<img width="495" height="731" alt="image" src="https://github.com/user-attachments/assets/ed6e935b-23a8-441c-8f8b-c1003a480ba3" />
+
 
 UC 1: Ask Question
 Users ask questions via text/voice, the system retrieves and returns accurate responses from connected data sources within 2 seconds.
