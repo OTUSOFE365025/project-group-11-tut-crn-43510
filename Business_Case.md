@@ -19,10 +19,15 @@ Some issues that we risk arising are data privacy concerns, as we are centralizi
 Stakeholders
 
 | Stakeholder | Role |
+|***|***|
 | Student | Primary users access academic info and schedules. |
+|***|***|
 | Lecturers | Manage courses, post announcements, and view data analytics |
+|***|***|
 | Administrator | Manage data integrations |
+|***|***|
 | System Maintainers | Maintain, monitor, and set up systems and performance |
+|***|***|
 | Data Source Systems | LMS, Registration, Calendar, and Email servers provide data. |
 
 
