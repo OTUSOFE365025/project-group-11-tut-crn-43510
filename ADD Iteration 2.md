@@ -1,6 +1,7 @@
 ﻿Include in this file the 7 steps for Iteration 2
 
 **Step 2: Establish Iteration Goal by Selecting Drivers**
+
 The goal of this iteration is to support the core functional behavior of the AIDAP system:
 UC-1 Ask Question: Conversational query processing and AI-based response generation.
 UC-2 Personalized Dashboard: Aggregation of academic data across LMS, registration, and calendar systems.
@@ -204,5 +205,6 @@ AI-generated content may be incorrect.](data:image/png;base64,iVBORw0KGgoAAAANSU
 |QA-2 Availability|Partially Addressed|Failover mechanisms and asynchronous retries in place.|
 |QA-3 Security & Privacy|Partially Addressed|Role-based access control added; data retention policies next.|
 |QA-4 Scalability|Completely Addressed|Auto-scaling services and partitioned queues defined.|
+
 
 
