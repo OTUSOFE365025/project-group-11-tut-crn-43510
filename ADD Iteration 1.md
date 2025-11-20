@@ -62,6 +62,58 @@ Along with constraints **CON-1 … CON-6**.
 | **Instantiate Integration Adapter modules in the data layer** | Adapter modules encapsulate communication with external systems (LMS, registration, calendar). This abstraction supports UC-2 and UC-7, isolates third-party protocols, and prepares for retries/backoff/circuit breakers for improved availability (QA-2). |
 | **Introduce a centralized Security & Access Control module as a cross-cutting concern** | Uniform enforcement of SSO, RBAC/ABAC, encryption, and audit logging is required for compliance (CON-1, QA-3). A centralized module simplifies policy application across all services. Final implementation details will be refined in later iterations. |
 
+Step 6: Sketch Views and Record Design Decisions
 
+Module View
 
+<img width="853" height="362" alt="image" src="https://github.com/user-attachments/assets/264b5154-a591-4a2e-8e7f-c1cc1ac5f5d5" />
 
+Sketch was created using PlantUML. The tool captures each component and the organizational structure/hierarchy capturing the module view. Below is each element and it’s responsibilities:
+
+| Element                                              | Responsibility                                                                                                     |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Web/Mobile/Voice Clients                             | Render the user interface and manage user interaction for conversational queries and dashboard views.              |
+| BFF Modules (Web, Mobile, Voice)                     | Transform and tailor responses for each client channel; handle lightweight session and request shaping.            |
+| API Gateway                                          | Enforce SSO authentication, API security policies, rate limiting, and route incoming requests to backend services. |
+| Conversation Service                                 | Orchestrates conversational flows and interacts with the AI Orchestrator to provide responses (supports UC-1).     |
+| Dashboard Service                                    | Aggregates and composes academic, scheduling, and announcement data for personalized dashboards (supports UC-2).   |
+| User/Profile Service                                 | Stores and retrieves user preferences, personalization history, and consent records.                               |
+| Notifications Service                                | Sends push notifications, reminders, and alerts via email or app channels.                                         |
+| Admin/Config Service                                 | Manages system configurations, integration settings, and policy enforcement.                                       |
+| AI Orchestrator                                      | Coordinates prompt construction, model selection, retrieval, and safety filtering.                                 |
+| Model Endpoint                                       | Executes ML model inference requests.                                                                              |
+| Vector Store Access                                  | Retrieves user embeddings and institutional content for semantic search.                                           |
+| Response Cache                                       | Stores recent conversational responses for latency reduction.                                                      |
+| Integration Facade                                   | Provides a unified domain API for LMS, registration, calendar, and email services.                                 |
+| Adapter Modules (LMS, Registration, Calendar, Email) | Isolate and abstract external APIs; maintain protocol mappings and error-handling mechanisms.                      |
+| Security & Access Control Module                     | Enforces authentication, authorization, encryption, and token handling.                                            |
+| Logging & Monitoring Module                          | Provides centralized tracing, metrics, logs, and observability dashboards.                                         |
+| Audit & Compliance Module                            | Records critical system actions for compliance and institutional governance.                                       |
+
+Summarrizing the deployment view below:
+
+<img width="863" height="808" alt="image" src="https://github.com/user-attachments/assets/a04c3089-e1cc-4933-94cd-3f093b0490af" />
+
+And the relationships:
+
+| Relationship                                    | Description                                                                                                                       |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Between user device and application server      | Communication uses HTTPS for secure transport of conversational queries and dashboard requests.                                   |
+| Between application server and database server  | Communication uses SQL over secure connections for operational data, and REST for vector retrieval and object storage operations. |
+| Between application server and external systems | Integration adapters communicate using REST or GraphQL APIs exposed by LMS, registration, calendar, and email systems.            |
+
+Step 7: Perform Analysis of Current Design and Review Iteration Goal
+
+|   |   |   |
+|---|---|---|
+|Requirement / Concern|Status|Design Decisions Made|
+|UC-1 Ask Question|Partially Addressed|Defined AI Orchestrator and conversational interface.|
+|UC-2 Personalized Dashboard|Partially Addressed|Defined dashboard and integration layer components.|
+|UC-7 Data Sync & Recovery|Partially Addressed|Introduced synchronization and retry mechanisms in adapters.|
+|QA-1 Performance|Partially Addressed|Adopted GraphQL and caching; latency validation in next iteration.|
+|QA-2 Availability|Partially Addressed|Introduced autoscaling and redundancy in deployment plan.|
+|QA-3 Security & Privacy|Partially Addressed|Integrated SSO and encryption; compliance rules to be finalized.|
+|QA-4 Scalability|Partially Addressed|Defined microservices and containerized deployment.|
+|CRN-1 Overall System Structure|Completely Addressed|Core architecture pattern established.|
+|CRN-2 Integration Layer|Completely Addressed|Modular adapter layer adopted.|
+|CRN-3 AI Component|Completely Addressed|AI Orchestrator and model endpoints defined.|
