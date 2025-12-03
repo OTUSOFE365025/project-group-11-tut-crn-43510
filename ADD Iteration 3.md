@@ -141,6 +141,12 @@ Drivers:
 |Add Dedicated Audit Log Store (Security & Logging subsystem)|Sensitive logs require separate, secured storage per the Data Partitioning design concept. This decision isolates audit trails from general logs and ensures access control and compliance. Supports QA-3 (Security & Privacy).|
 
 **Architecture Views**
+<img width="782" height="420" alt="image" src="https://github.com/user-attachments/assets/2332ab81-5b46-49d4-bbf6-fdfb3e1c2be2" />
+
+
+<img width="787" height="154" alt="image" src="https://github.com/user-attachments/assets/bee10324-abcf-437f-bbab-60573b102308" />
+
+<img width="796" height="415" alt="image" src="https://github.com/user-attachments/assets/89652fcd-e992-40a2-8d26-fe6271f8c33e" />
 
 
 ## Analysis Review
@@ -238,8 +244,7 @@ Non-Risks
 
   
 ## ATAM Utility Tree
-
-
+<img width="770" height="766" alt="image" src="https://github.com/user-attachments/assets/c1e37f60-f985-4bdf-8db7-1bbdeb38bb09" />
 
 
 
