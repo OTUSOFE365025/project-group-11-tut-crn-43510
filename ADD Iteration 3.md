@@ -141,6 +141,8 @@ Drivers:
 |Add Dedicated Audit Log Store (Security & Logging subsystem)|Sensitive logs require separate, secured storage per the Data Partitioning design concept. This decision isolates audit trails from general logs and ensures access control and compliance. Supports QA-3 (Security & Privacy).|
 
 **Architecture Views**
+
+
 <img width="782" height="420" alt="image" src="https://github.com/user-attachments/assets/2332ab81-5b46-49d4-bbf6-fdfb3e1c2be2" />
 
 
