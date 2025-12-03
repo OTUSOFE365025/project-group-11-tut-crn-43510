@@ -52,8 +52,6 @@ Direct synchronous HTTP calls, manual batch syncs, monolithic auth — rejected 
 ---
 
 ### **UC-1 – Ask Question Flow**
-
-
 1. User sends query → BFF → API Gateway  
 2. Gateway authenticates via SSO and forwards to Conversation Service  
 3. Conversation Service checks cache → calls AI Orchestrator if miss  
@@ -61,21 +59,14 @@ Direct synchronous HTTP calls, manual batch syncs, monolithic auth — rejected 
 5. Model endpoint invoked → response returned  
 6. Conversation Service stores interaction + returns answer  
 
----
-
 ### **UC-2 – Personalized Dashboard Flow**
-
-
 1. Dashboard request sent to API Gateway  
 2. Dashboard Service calls Integration Facade  
 3. Facade runs parallel async LMS + Registration + Calendar calls  
 4. Results merged + cached  
 5. Returned via GraphQL w/ live subscriptions  
 
-
 ### **UC-7 – Data Sync & Recovery Flow**
-
-
 1. Scheduled sync triggers worker  
 2. Worker fetches delta changes via cursor-based pagination  
 3. Applies idempotent upserts to DB + updates Vector Store  
